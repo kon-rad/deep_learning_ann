@@ -41,6 +41,10 @@ sc = StandardScaler()
 X_train = sc.fit_transform(X_train)
 X_test = sc.transform(X_test)
 
+
+
+
+
 # Part 2 - Now let's make the ANN!
 
 # Importing the Keras libraries and packages
@@ -53,6 +57,7 @@ classifier = Sequential()
 
 # Adding the input layer and the first hidden layer
 classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu', input_dim = 11))
+# Dense(activation="relu", input_dim=11, units=6, kernel_initializer="uniform")
 
 # Adding the second hidden layer
 classifier.add(Dense(output_dim = 6, init = 'uniform', activation = 'relu'))
@@ -75,3 +80,7 @@ y_pred = (y_pred > 0.5)
 # Making the Confusion Matrix
 from sklearn.metrics import confusion_matrix
 cm = confusion_matrix(y_test, y_pred)
+
+
+# correct predictions / total (1547 + 134) / 2000
+# accuracy:  0.8405
